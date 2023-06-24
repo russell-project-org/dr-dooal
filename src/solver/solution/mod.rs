@@ -1,4 +1,4 @@
-enum Solution {
+pub enum Solution {
     UniqueSolution,
     ConvexHull,
     OptimalSet,

@@ -1,8 +1,13 @@
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
+mod solver;
+use solver::solution::Solution;
 
 fn main() {
+
+    let s : Solution = Solution::ConvexHull;
+    println!("It compiles and runs!");
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1..=100);
