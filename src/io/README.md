@@ -22,8 +22,8 @@ o 2 3 <--- 'o' stands for objective function, 2 and 3 are coefficients of the li
 e 1 1 leq 8
 e 0.5 2 geq 6
 e 2 5 eq 20
-e 1 geq 0 <-- note that you can ignore x2
-e 0 1 leq 0 <-- note that you cannot ignore x1
+v 1 geq 0 <-- note that you can ignore x2
+v 0 1 leq 0 <-- note that you cannot ignore x1
 f <-- Termination buffer
 
 ```
