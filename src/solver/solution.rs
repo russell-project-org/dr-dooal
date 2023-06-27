@@ -2,5 +2,6 @@ pub enum Solution {
     UniqueSolution,
     ConvexHull,
     OptimalSet,
-    Infeasible
+    Infeasible,
+    UnboundedSolution
 }
