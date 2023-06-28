@@ -13,10 +13,10 @@ use dooal_io::config::Config;
 fn main() {
 
     let args: Vec<String> = env::args().collect();
-
+    println!("{:?}", args);
     let config : Config = Config::new(&args);
 
-    println!("{:?}", args);
+    
 
     let s : Solution = Solution::ConvexHull;
     println!("It compiles and runs!");
