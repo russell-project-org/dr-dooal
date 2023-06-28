@@ -1,0 +1,9 @@
+c This will be the comment
+c of the file. It will be ignored during parsing.
+o 2 3
+e 1 1 leq 8
+e 0.5 2 geq 6
+e 2 5 eq 20
+v 1 geq 0
+v 0 1 leq 0
+f
