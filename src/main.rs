@@ -1,13 +1,31 @@
 use rand::Rng;
 use std::cmp::Ordering;
+use std::env;
 use std::io;
+
 mod solver;
 use solver::solution::Solution;
 
+mod dooal_io;
+use dooal_io::reader::IO;
+use dooal_io::config::Config;
+
 fn main() {
+
+    let args: Vec<String> = env::args().collect();
+
+    let config : Config = Config::new(&args);
+
+    println!("{:?}", args);
 
     let s : Solution = Solution::ConvexHull;
     println!("It compiles and runs!");
+    
+}
+
+
+// Dead code here for experiments
+fn number_guesser() {
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1..=100);
