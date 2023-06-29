@@ -26,8 +26,8 @@ fn main() {
             process::exit(1);
         });
 
-    let contents: String = IO::read_file(config.filename);
-    println!("{}", contents);
+    let contents: Vec<String> = IO::read_file(config.filename);
+    println!("{:#?}", contents);
 
     test();
 
