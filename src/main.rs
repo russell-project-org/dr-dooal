@@ -14,13 +14,17 @@ use dooal_io::config::Config;
 fn main() {
 
     let args: Vec<String> = env::args().collect();
-    println!("{:?}", args);
+
+    println!("{:?}", args); // delete in production
+
     let config = Config::new(&args)
         .unwrap_or_else(|err| {
             println!("Problem parsing arguments: {}", err);
             process::exit(1);
         });
 
+    let contents = IO::read_file(config.filename);
+    println!("{}", contents);
 
     let s : Solution = Solution::ConvexHull;
     println!("It compiles and runs!");

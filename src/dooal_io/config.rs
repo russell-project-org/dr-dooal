@@ -1,6 +1,6 @@
 pub struct Config {
     query: String,
-    filename: String
+    pub filename: String
 }
 
 impl Config {

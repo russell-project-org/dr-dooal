@@ -16,5 +16,5 @@
 Name : Tan Kai Min, Russell
 
 ### Expected Release of V1.0
-Soft release : 20 December 2023
-Hard release : 8 January 2024
+- Soft release : 20 December 2023
+- Hard release : 8 January 2024
