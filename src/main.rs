@@ -31,7 +31,7 @@ fn main() {
 
     test();
 
-    let s : Solution = Solution::ConvexHull;
+    //let s : Solution = Solution::ConvexHull;
     println!("It compiles and runs!");
     
 }
@@ -43,6 +43,6 @@ fn test() {
     });
 
     let s = Rational {numerator: 2, denominator: 8};
-    println!("{}",r + s);
+    println!("{}",-s);
 }
 

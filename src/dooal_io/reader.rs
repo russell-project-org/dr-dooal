@@ -1,6 +1,6 @@
-use std::{fs::{self, File}, io::{self, BufRead}, path::Path};
+use std::{fs::File, io::{self, BufRead}, path::Path};
 pub struct IO {
-    name:String
+    
 }
 
 impl IO {

@@ -1,5 +1,5 @@
 use std::fmt;
-use std::ops:: {Add, Sub, Mul, Div};
+use std::ops:: {Add, Sub, Mul, Div, Neg};
 use std::cmp:: {PartialEq, Eq};
 use super::dooal_utils::Math;
 
@@ -140,5 +140,12 @@ impl Div<Rational> for i32 {
     type Output = Rational;
     fn div(self, other: Rational) -> Rational {
         Rational::div(Rational { numerator: self, denominator: 1 }, other)
+    }
+}
+
+impl Neg for Rational {
+    type Output = Rational;
+    fn neg(self) -> Rational {
+        Rational::mul(self, Rational {numerator: -1, denominator: 1})
     }
 }
