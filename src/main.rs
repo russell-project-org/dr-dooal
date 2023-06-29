@@ -11,26 +11,38 @@ mod dooal_io;
 use dooal_io::reader::IO;
 use dooal_io::config::Config;
 
+mod numbers;
+use numbers::rationals::rational::Rational;
+
 fn main() {
 
     let args: Vec<String> = env::args().collect();
 
     println!("{:?}", args); // delete in production
 
-    let config = Config::new(&args)
-        .unwrap_or_else(|err| {
+    let config: Config = Config::new(&args)
+        .unwrap_or_else(|err: &str| {
             println!("Problem parsing arguments: {}", err);
             process::exit(1);
         });
 
-    let contents = IO::read_file(config.filename);
+    let contents: String = IO::read_file(config.filename);
     println!("{}", contents);
+
+    test();
 
     let s : Solution = Solution::ConvexHull;
     println!("It compiles and runs!");
     
 }
 
+fn test() {
+    let r: Rational = Rational::new(-16, 32).unwrap_or_else(|_err| {
+        print!("Rational got problem");
+        process::exit(1);
+    });
+    println!("{}",r);
+}
 
 // Dead code here for experiments
 fn number_guesser() {
