@@ -37,7 +37,7 @@ fn main() {
 }
 
 fn test() {
-    let r: Rational = Rational::new(-16, 32).unwrap_or_else(|_err| {
+    let r: Rational = Rational::new(0, 2).unwrap_or_else(|_err| {
         print!("Rational got problem");
         process::exit(1);
     });

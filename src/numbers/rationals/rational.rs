@@ -15,9 +15,20 @@ impl Rational {
         }
 
         let g : i32 = Math::gcd(num, denom);
-        let numerator: i32 = num / g;
-        let denominator: i32 = denom / g;
-        Ok(Rational{numerator, denominator})
+        let pair : (i32, i32) = (num / g, denom / g);
+        // dbg!(pair);
+        match pair {
+            (0, _) => Ok(Rational { numerator:0, denominator: 1 }),
+            (x, 1) => Ok(Rational { numerator: x, denominator: 1 }),
+            (x, y) => {
+                if (x > 0 && y < 0) || (x < 0 && y < 0) {
+                    Ok(Rational { numerator: -1 * x, denominator: -1 * y })
+                } else {
+                    Ok(Rational { numerator: x, denominator: y })
+                }
+            }
+        }
+        
     }
 
 
@@ -25,6 +36,11 @@ impl Rational {
 
 impl fmt::Display for Rational {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}/{}", self.numerator, self.denominator)
+        let tup: (i32, i32) = (self.numerator.clone(), self.denominator.clone());
+        match tup {
+            (0, _) => write!(f, "0"),
+            (x, 1) => write!(f, "{}", x),
+            (x, y) => write!(f, "{}/{}", x, y)
+        }  
     }
 }
