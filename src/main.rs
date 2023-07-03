@@ -14,6 +14,8 @@ use dooal_io::config::Config;
 mod numbers;
 use numbers::rationals::rational::Rational;
 
+use crate::dooal_io::parser::Parser;
+
 fn main() {
 
     let args: Vec<String> = env::args().collect();
@@ -28,6 +30,8 @@ fn main() {
 
     let contents: Vec<String> = IO::read_file(config.filename);
     println!("{:#?}", contents);
+
+    Parser::process(contents);
 
     test();
 
