@@ -12,6 +12,8 @@ use dooal_io::reader::IO;
 use dooal_io::config::Config;
 
 mod numbers;
+mod equations;
+
 use numbers::rationals::rational::Rational;
 
 use crate::dooal_io::parser::Parser;
