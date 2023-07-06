@@ -12,9 +12,8 @@ impl Parser {
         let mut tableau : Tableau = Tableau::new();
 
         for line in lines {
-            let c : Vec<_> = line.split_whitespace().collect();
-
-            match c[0] {
+            let c : Vec<String> = line.split_whitespace().collect::<Vec<_>>().into_iter().map(String::from).collect();
+            match c[0].as_str() {
                 "f" => {
                     println!("Terminate!");
                     break;
@@ -24,6 +23,7 @@ impl Parser {
                 },
                 "o" => {
                     println!("Objective found!");
+                    tableau.insert_objective_function(c);
                 },
                 "v" => {
                     println!("variable found!");
@@ -31,9 +31,9 @@ impl Parser {
                 _ => println!("comment or invalid")
             }
             
-            if !c[0].eq("c") {
-                println!("{:?}", c);
-            }
+            // if !c[0].eq("c") {
+            //     println!("{:?}", c);
+            // }
         }
     }
 
