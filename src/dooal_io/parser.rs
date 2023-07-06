@@ -9,7 +9,7 @@ impl Parser {
     // in the future, it will build the tableau and pass to main.rs
     pub fn process(mut lines : Vec<String>) {
 
-        let mut tableau : Tableau = Tableau{objective:crate::equations::objective::Objective {  },constraints:Vec::new(), vars:Vec::new()};
+        let mut tableau : Tableau = Tableau::new();
 
         for line in lines {
             let c : Vec<_> = line.split_whitespace().collect();

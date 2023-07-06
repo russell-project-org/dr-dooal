@@ -7,7 +7,7 @@ pub struct Constraint {
 impl Constraint {
     pub fn new(vec_num: Vec<String>) -> Constraint {
         let mut row : Vec<Rational> = Vec::new();
-        Constraint(row: row)
+        Constraint {row : row}
     }
 }
 

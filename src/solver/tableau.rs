@@ -9,6 +9,11 @@ pub struct Tableau {
 }
 
 impl Tableau {
+
+    pub fn new() -> Tableau {
+        Tableau {objective: Objective::new(), constraints: Vec::new(), vars: Vec::new()}
+    }
+
     pub fn insert_constraint() {
 
     }
