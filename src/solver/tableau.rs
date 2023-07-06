@@ -18,8 +18,8 @@ impl Tableau {
 
     }
 
-    pub fn insert_objective_function() {
-
+    pub fn insert_objective_function(&mut self, string: Vec<String>) {
+        self.objective = Objective::process(string);
     }
 
     pub fn insert_variable() {

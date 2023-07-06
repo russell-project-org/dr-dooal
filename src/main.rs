@@ -50,5 +50,26 @@ fn test() {
 
     let s = Rational {numerator: 2, denominator: 8};
     println!("{}",-s);
+
+    let t = Rational::from_string(String::from("-1.503"));
+    println!("{}", t);
+
+    let t = Rational::from_string(String::from("3.141592"));
+    println!("{}", t);
+
+    let t = Rational::from_string(String::from("0.61729"));
+    println!("{}", t);
+
+    let t = Rational::from_string(String::from("-0.61729"));
+    println!("{}", t);
+
+    let t = Rational::from_string(String::from("-3.141592"));
+    println!("{}", t);
+
+    let t = Rational::from_string(String::from("-3"));
+    println!("{}", t);
+
+    let t = Rational::from_string(String::from("5"));
+    println!("{}", t);
 }
 

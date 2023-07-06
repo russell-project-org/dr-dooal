@@ -11,6 +11,23 @@ pub struct Rational {
 
 impl Rational {
 
+    pub fn from_string(num: String) -> Rational {
+        if num.contains(".") {
+            let mut stuff : Vec<_>= num.split(".").collect();
+            let radix: i32 = 10;
+            let exponent= (*stuff[1]).len();
+            let front : Rational = Rational {numerator: (*stuff[0]).parse::<i32>().unwrap(), denominator: 1};
+            let back : Rational = Rational {numerator:(*stuff[1]).parse::<i32>().unwrap(),
+                denominator: radix.pow((exponent).try_into().unwrap())};
+            front + match num.parse::<f32>().unwrap() >= 0.0 {
+                true => back,
+                false => -1 * back
+            }
+        } else {
+            Rational { numerator: num.parse().unwrap(), denominator: 1 }
+        }
+    }
+
     pub fn new(num: i32, denom: i32) -> Result<Rational,&'static str> {
         if denom == 0 {
             return Err("Invalid Rational Number as Denominator is Zero!");

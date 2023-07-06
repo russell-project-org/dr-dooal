@@ -12,3 +12,7 @@ pub trait Normalisable {
 pub trait Insertable {
     fn insert(index: i32, val: Rational);
 }
+
+pub trait EquationStringProcessable {
+    fn process(string: Vec<String>);
+}
