@@ -1,5 +1,3 @@
-use rand::Rng;
-use std::cmp::Ordering;
 use std::env;
 use std::io;
 use std::process;
@@ -11,52 +9,69 @@ mod dooal_io;
 use dooal_io::reader::IO;
 use dooal_io::config::Config;
 
+mod numbers;
+mod equations;
+
+use numbers::rationals::rational::Rational;
+
+use crate::dooal_io::parser::Parser;
+use crate::equations::constraint::Constraint;
+
 fn main() {
 
     let args: Vec<String> = env::args().collect();
-    println!("{:?}", args);
-    let config = Config::new(&args)
-        .unwrap_or_else(|err| {
+
+    println!("{:?}", args); // delete in production
+
+    let config: Config = Config::new(&args)
+        .unwrap_or_else(|err: &str| {
             println!("Problem parsing arguments: {}", err);
             process::exit(1);
         });
 
+    let contents: Vec<String> = IO::read_file(config.filename);
+    println!("{:#?}", contents);
 
-    let s : Solution = Solution::ConvexHull;
+    Parser::process(contents);
+
+    test();
+
+    //let s : Solution = Solution::ConvexHull;
     println!("It compiles and runs!");
     
 }
 
+fn test() {
+    let r: Rational = Rational::new(3, 2).unwrap_or_else(|_err| {
+        print!("Rational got problem");
+        process::exit(1);
+    });
 
-// Dead code here for experiments
-fn number_guesser() {
-    println!("Guess the number!");
+    let s = Rational {numerator: 2, denominator: 8};
+    println!("{}",-s);
 
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let t = Rational::from_string(String::from("-1.503"));
+    println!("{}", t);
 
-    loop {
-        println!("Please input your guess.");
+    let u = Rational::from_string(String::from("3.141592"));
+    println!("{}", u);
 
-        let mut guess = String::new();
+    let v = Rational::from_string(String::from("0.61729"));
+    println!("{}", v);
 
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
+    let w = Rational::from_string(String::from("-0.61729"));
+    println!("{}", w);
 
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
+    let x = Rational::from_string(String::from("-3.141592"));
+    println!("{}", x);
 
-        println!("You guessed: {guess}");
+    let y = Rational::from_string(String::from("-3"));
+    println!("{}", y);
 
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You win!");
-                break;
-            }
-        }
-    }
+    let z = Rational::from_string(String::from("5"));
+    println!("{}", z);
+
+    let vector = vec![t, u, v, w, x, y, z];
+    println!("{:?}", Constraint::negate_all(vector));
 }
+
