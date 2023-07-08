@@ -15,6 +15,7 @@ mod equations;
 use numbers::rationals::rational::Rational;
 
 use crate::dooal_io::parser::Parser;
+use crate::equations::constraint::Constraint;
 
 fn main() {
 
@@ -52,22 +53,25 @@ fn test() {
     let t = Rational::from_string(String::from("-1.503"));
     println!("{}", t);
 
-    let t = Rational::from_string(String::from("3.141592"));
-    println!("{}", t);
+    let u = Rational::from_string(String::from("3.141592"));
+    println!("{}", u);
 
-    let t = Rational::from_string(String::from("0.61729"));
-    println!("{}", t);
+    let v = Rational::from_string(String::from("0.61729"));
+    println!("{}", v);
 
-    let t = Rational::from_string(String::from("-0.61729"));
-    println!("{}", t);
+    let w = Rational::from_string(String::from("-0.61729"));
+    println!("{}", w);
 
-    let t = Rational::from_string(String::from("-3.141592"));
-    println!("{}", t);
+    let x = Rational::from_string(String::from("-3.141592"));
+    println!("{}", x);
 
-    let t = Rational::from_string(String::from("-3"));
-    println!("{}", t);
+    let y = Rational::from_string(String::from("-3"));
+    println!("{}", y);
 
-    let t = Rational::from_string(String::from("5"));
-    println!("{}", t);
+    let z = Rational::from_string(String::from("5"));
+    println!("{}", z);
+
+    let vector = vec![t, u, v, w, x, y, z];
+    println!("{:?}", Constraint::negate_all(vector));
 }
 

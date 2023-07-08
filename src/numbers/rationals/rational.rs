@@ -1,6 +1,6 @@
 use std::fmt;
 use std::ops:: {Add, Sub, Mul, Div, Neg};
-use std::cmp:: {PartialEq, Eq};
+use std::cmp::{PartialEq, Eq, Ordering};
 use std::fmt::Formatter;
 use super::dooal_utils::Math;
 
@@ -62,6 +62,14 @@ impl fmt::Display for Rational {
             (x, 1) => write!(f, "{}", x),
             (x, y) => write!(f, "{}/{}", x, y)
         }  
+    }
+}
+
+impl PartialOrd for Rational {
+    fn partial_cmp(&self, other: &Rational) -> Option<Ordering> {
+        let actual: f32 = (self.numerator as f32/ self.denominator as f32);
+        let other_rat : f32 = (other.numerator as f32) / (other.denominator as f32);
+        actual.partial_cmp(&other_rat)
     }
 }
 

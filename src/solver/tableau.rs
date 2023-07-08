@@ -15,8 +15,10 @@ impl Tableau {
         Tableau {objective: Objective::new(), constraints: Vec::new(), vars: Vec::new()}
     }
 
-    pub fn insert_constraint() {
-
+    pub fn insert_constraint(&mut self, string: Vec<String>) {
+        let constraint : Constraint = Constraint::process(string);
+        println!("{}", constraint);
+        self.constraints.push(constraint);
     }
 
     pub fn insert_objective_function(&mut self, string: Vec<String>) {

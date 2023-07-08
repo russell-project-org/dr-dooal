@@ -20,6 +20,7 @@ impl Parser {
                 },
                 "e" => {
                     println!("Constraint found!");
+                    tableau.insert_constraint(c);
                 },
                 "o" => {
                     println!("Objective found!");
