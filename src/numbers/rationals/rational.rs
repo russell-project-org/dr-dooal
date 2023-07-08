@@ -1,6 +1,7 @@
 use std::fmt;
 use std::ops:: {Add, Sub, Mul, Div, Neg};
 use std::cmp:: {PartialEq, Eq};
+use std::fmt::Formatter;
 use super::dooal_utils::Math;
 
 #[derive(Debug, Clone, Copy)]

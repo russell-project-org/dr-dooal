@@ -1,5 +1,3 @@
-use rand::Rng;
-use std::cmp::Ordering;
 use std::env;
 use std::io;
 use std::process;

@@ -1,4 +1,5 @@
 use crate::equations::constraint::Constraint;
+use crate::equations::EquationStringProcessable;
 use crate::equations::objective::Objective;
 use crate::equations::variable::Variable;
 
@@ -20,6 +21,7 @@ impl Tableau {
 
     pub fn insert_objective_function(&mut self, string: Vec<String>) {
         self.objective = Objective::process(string);
+        println!("{}", self.objective);
     }
 
     pub fn insert_variable() {

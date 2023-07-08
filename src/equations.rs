@@ -1,3 +1,5 @@
+use std::fmt;
+use std::fmt::Formatter;
 use crate::Rational;
 
 pub mod constraint;
@@ -13,6 +15,6 @@ pub trait Insertable {
     fn insert(index: i32, val: Rational);
 }
 
-pub trait EquationStringProcessable {
-    fn process(string: Vec<String>);
+pub trait EquationStringProcessable<T> {
+    fn process(string: Vec<String>) -> T;
 }
