@@ -2,6 +2,7 @@ use std::fmt::{Formatter, Result, Display};
 use crate::equations::EquationStringProcessable;
 use crate::Rational;
 
+#[derive(Debug, Clone)]
 pub struct Constraint {
     pub constraint : Vec<Rational>,
     pub leq : bool,
@@ -26,7 +27,7 @@ impl Constraint {
             vals = Constraint::negate_all(vec_rat);
             Constraint {constraint: vals, leq: true, pos_slacks: 1, neg_slacks: 0}
         } else {
-            Constraint {constraint: vec_rat, leq: true, pos_slacks: 1, neg_slacks: 1}
+            Constraint {constraint: vec_rat, leq: false, pos_slacks: 1, neg_slacks: 1}
         }
     }
 

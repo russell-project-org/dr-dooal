@@ -1,10 +1,9 @@
 use std::fmt;
 use std::ops:: {Add, Sub, Mul, Div, Neg};
 use std::cmp::{PartialEq, Eq, Ordering};
-use std::fmt::Formatter;
 use super::dooal_utils::Math;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone)]
 pub struct Rational {
     pub numerator: i32,
     pub denominator: i32

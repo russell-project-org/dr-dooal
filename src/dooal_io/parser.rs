@@ -14,28 +14,18 @@ impl Parser {
         for line in lines {
             let c : Vec<String> = line.split_whitespace().collect::<Vec<_>>().into_iter().map(String::from).collect();
             match c[0].as_str() {
-                "f" => {
-                    println!("Terminate!");
-                    break;
-                },
-                "e" => {
-                    println!("Constraint found!");
-                    tableau.insert_constraint(c);
-                },
-                "o" => {
-                    println!("Objective found!");
-                    tableau.insert_objective_function(c);
-                },
+                "f" => break,
+                "e" => tableau.insert_constraint(c)
+                ,
+                "o" => tableau.insert_objective_function(c),
                 "v" => {
-                    println!("variable found!");
+                    println!("variable found!"); // delete later
                 },
-                _ => println!("comment or invalid")
+                _ => println!("comment or invalid") // delete later
             }
-            
-            // if !c[0].eq("c") {
-            //     println!("{:?}", c);
-            // }
+
         }
+        println!("CONSTRAINT COUNT : {:?}", tableau.constraints.len());
     }
 
 }
