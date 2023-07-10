@@ -58,7 +58,22 @@ impl Tableau {
         //println!("{}", self.objective);
     }
 
-    pub fn insert_variable() {
-        
+    pub fn insert_variables(&mut self, string: Vec<String>) {
+        let mut integers : Vec<i32> = string.into_iter()
+            .map(|x| x.parse().unwrap_or_else(|x| {
+                println!("Not a valid input for integers in file!");
+                std::process::exit(1);
+            })).collect();
+        let num_integers = integers.len();
+        for i in 0..=num_integers - 1 {
+            match integers[i] {
+                -1 => self.vars.push(Variable::new()),
+                1 => self.vars.push(Variable::new()),
+                _ => {
+                    println!("Invalid number detected! Aborting...");
+                    std::process::exit(1);
+                }
+            }
+        }
     }
 }

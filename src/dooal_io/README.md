@@ -18,12 +18,13 @@ The file format will be based loosely on DIMACS CNF formula
 
 c This will be the comment
 c of the file. It will be ignored during parsing.
+c Note that variable 'v' line must always be before objective function line
+v 1 -1 <-- 1 for >=0 and -1 for <= 0, no unbounded allowed
 o 2 3 <--- 'o' stands for objective function, 2 and 3 are coefficients of the linear function
 e 1 1 leq 8
 e 0.5 2 geq 6
 e 2 5 eq 20
-v 1 geq 0 <-- note that you can ignore x2
-v 0 1 leq 0 <-- note that you cannot ignore x1
+v 1 -1 <-- 1 for >=0 and -1 for <= 0, 0 for unbounded
 f <-- Termination buffer
 
 ```
